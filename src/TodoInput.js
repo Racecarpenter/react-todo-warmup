@@ -9,8 +9,8 @@ class TodoInput extends Component {
   render () {
     return (
       <div>
-        <input type="text" ref="title" />
         <input type="text" ref="description" />
+        <input type="text" ref="thetodovalue" />
         <select ref="complete">
           <option value="done">Done</option>
           <option value="not done">Not Done</option>
