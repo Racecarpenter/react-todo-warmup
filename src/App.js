@@ -9,10 +9,12 @@ class App extends Component {
     this.state = {
       todos: [
         {
-          task: 'blah'
+          task: 'Make The WarmUp Work',
+          complete: "Not Done"
         },
         {
-          task: 'water damage'
+          task: 'sit and wait for death',
+          complete: "Done"
         }
       ]
     }
@@ -20,7 +22,18 @@ class App extends Component {
 
   addTodo(todo, e) {
     this.setState({
-      todos: this.state.todos.concat({task:todo})
+      todos: this.state.todos.concat({
+        task:todo,
+        complete: "Not Done"
+      })
+    })
+  }
+
+    changeStatus(todo, e) {
+      this.setState({
+        todos: this.state.todos.concat({
+        complete: todo.complete
+      })
     })
   }
   render() {
@@ -37,7 +50,7 @@ class App extends Component {
     return (
       <div style={container}>
       <TodoInput addTodoFunc={this.addTodo.bind(this)}/>
-        <TodoList thetodos={this.state.todos}/>
+        <TodoList thetodos={this.state.todos} changeStatusFunk={this.changeStatus.bind(this)}/>
       </div>
     );
   }
